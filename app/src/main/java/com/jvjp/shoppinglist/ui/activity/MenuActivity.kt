@@ -50,7 +50,7 @@ class MenuActivity : AppCompatActivity() {
 
         })
         binding.buttonCloseMenu.setOnClickListener { finish() }
-
+        binding.btnHistoricList.setOnClickListener { startActivity(Intent(this, ListDayItensActivity::class.java)) }
 
         binding.buttonLogout.setOnClickListener {
             auth!!.signOut()
