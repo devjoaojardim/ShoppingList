@@ -102,7 +102,6 @@ class SigninFragment : Fragment() {
     //metodo para abrir a tela Principal
     fun abrirTelaPrincipal() {
         startActivity(Intent(requireContext(), MainActivity::class.java))
-        requireActivity().finish()
     }
 
 }

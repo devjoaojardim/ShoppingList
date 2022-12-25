@@ -18,6 +18,7 @@ import com.jvjp.shoppinglist.config.ConfigFirebase
 import com.jvjp.shoppinglist.databinding.FragmentSignUpBinding
 import com.jvjp.shoppinglist.databinding.FragmentSigninBinding
 import com.jvjp.shoppinglist.helpe.Base64Custom
+import com.jvjp.shoppinglist.helpe.Preferences
 import com.jvjp.shoppinglist.model.User
 import com.jvjp.shoppinglist.ui.activity.MainActivity
 import java.lang.Exception
@@ -27,11 +28,11 @@ class SignUpFragment : Fragment() {
 
     private var auth: FirebaseAuth? = null
     private var usuario: User? = null
-
+    lateinit var preferences: Preferences
     private lateinit var binding: FragmentSignUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        preferences = Preferences(requireContext())
     }
 
     override fun onCreateView(
@@ -69,6 +70,8 @@ class SignUpFragment : Fragment() {
                                 usuario!!.email = email
                                 usuario!!.senha = password
                                 createUser()
+                                preferences.setInforUserName(name)
+                                preferences.setInforUserEmail(email)
                             }
                         }
                     }
@@ -90,13 +93,12 @@ class SignUpFragment : Fragment() {
         auth!!.createUserWithEmailAndPassword(
             usuario!!.email.toString(), usuario!!.senha.toString()
         ).addOnCompleteListener(requireActivity()) {
-            if(it.isSuccessful){
+            if (it.isSuccessful) {
                 val idUsuario = Base64Custom.codificarBase64(usuario!!.email)
                 usuario!!.idUsuario = idUsuario
                 usuario!!.salvar()
                 startActivity(Intent(requireContext(), MainActivity::class.java))
-                requireActivity().finish()
-            }else{
+            } else {
                 var excecao = ""
                 try {
                     throw it.exception!!

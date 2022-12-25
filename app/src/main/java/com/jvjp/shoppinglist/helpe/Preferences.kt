@@ -65,10 +65,8 @@ class Preferences(context: Context?) {
     }
 
     fun clearUserData() {
-        editor?.remove("getData")
-        editor?.remove("login")
-        editor?.remove("token")
-        editor?.remove("arrayNotifyCompare")
+        editor?.remove("getDataEmail")
+        editor?.remove("getDataName")
         editor!!.commit()
     }
 
