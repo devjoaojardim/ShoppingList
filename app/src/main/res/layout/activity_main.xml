@@ -8,13 +8,14 @@
     tools:context=".ui.activity.MainActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#26A6DB"
         android:src="@drawable/ic_baseline_add_24"
         android:tint="@color/white"
-        app:fabSize="auto"
 
+        app:fabSize="auto"
         app:layout_anchor="@id/bottom_app_bar" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -36,21 +37,11 @@
             android:layout_marginEnd="2dp"
             android:background="@android:color/transparent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="16dp"
-                android:layout_toStartOf="@+id/menu_btn"
-                android:text="ValorTotal"
-                android:textColor="#8EC754" />
-
             <ImageView
                 android:id="@+id/menu_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
                 android:src="@drawable/ic_baseline_menu_24"
                 android:tint="#8EC754" />
         </RelativeLayout>
@@ -95,13 +86,13 @@
 
             <TextView
                 android:id="@+id/titleNameUser"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Óla, João Victor vamos as compras?"
+                android:text="Óla, João Victor vamos as compras hoje?"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -114,6 +105,11 @@
                 android:elevation="5dp"
                 android:orientation="vertical">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_shopping_today"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/adapter_list_today" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

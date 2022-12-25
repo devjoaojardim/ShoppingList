@@ -7,22 +7,24 @@ import com.jvjp.shoppinglist.helpe.Base64Custom
 class Shopping {
 
     @get:Exclude
-    var idUsuario: String? = null
-    var nameProduct: String? = null
-    var amount: String? = null
+    var teste: String? = null
+    var amount: Int? = null
     var typeramount: String? = null
     var price: String? = null
+    var nameProduct: String? = null
     var category: String? = null
-    var senha: String? = null
+    var descriptor: String? = null
+    var key: String? = null
 
-
-    fun salvar() {
+    fun salvar(data: String) {
         val auth = ConfigFirebase().getAutenticacao()
         val firebase = ConfigFirebase().getFirebase()
+
         if (firebase != null) {
             val idUsuario = Base64Custom.codificarBase64(auth!!.currentUser!!.email)
             firebase.child("shopping")
                 .child(idUsuario!!)
+                .child(data)
                 .push()
                 .setValue(this)
         }
