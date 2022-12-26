@@ -5,8 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8EC754"
-    tools:context=".ui.fragment.auth.registre.SignUpFragment">
+    tools:context=".ui.activity.ProfileActivity">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_facebook_3_logo_svgrepo_com"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <LinearLayout
         android:id="@+id/buttonCloseSignUp"
@@ -47,6 +58,7 @@
         android:textColorHighlight="#26A6DB"
         android:textColorHint="#7926A6DB"
         android:textColorLink="#26A6DB"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +80,7 @@
         android:textColorHighlight="#26A6DB"
         android:textColorHint="#7926A6DB"
         android:textColorLink="#26A6DB"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPhone" />
@@ -75,7 +88,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="80dp"
         android:background="@drawable/shape_signin"
         android:elevation="10dp"
         android:gravity="center_horizontal"
@@ -130,7 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editEmailRegistre"
-        app:mask="###.###.###-##"/>
+        app:mask="###.###.###-##" />
 
     <EditText
         android:id="@+id/editNameRegistre"
@@ -150,28 +163,28 @@
         android:textColorLink="#26A6DB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image2" />
 
     <Button
         android:id="@+id/buttonRegistreEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/shape_button_signin"
-        android:text="Cadastrar"
+        android:text="Ataulizar Cadastro"
         android:textColor="#26A6DB"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPhone" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Cadastro"
+        android:text="Atualizar dados"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -195,7 +208,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editBirth"
-        app:mask="(##) #####-####"/>
+        app:mask="(##) #####-####" />
 
     <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/editBirth"
@@ -212,8 +225,24 @@
         android:textColor="#26A6DB"
         android:textColorHint="#7926A6DB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:mask="##/##/####"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCPF" />
+        app:layout_constraintTop_toBottomOf="@+id/editCPF"
+        app:mask="##/##/####" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg_list"
+        android:orientation="vertical"
+        android:padding="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image2"
+        app:layout_constraintEnd_toEndOf="@+id/profile_image2">
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/ic_baseline_create_24" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

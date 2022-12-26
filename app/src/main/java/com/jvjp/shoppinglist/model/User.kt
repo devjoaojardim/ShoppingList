@@ -8,6 +8,9 @@ class User {
     var idUsuario: String? = null
     var name: String? = null
     var email: String? = null
+    var codePerson: String? = null
+    var birth: String? = null
+    var phone: String? = null
     var senha: String? = null
 
 

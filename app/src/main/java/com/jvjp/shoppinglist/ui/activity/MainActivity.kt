@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         valueEventListenerUsuario = nameUser!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
-                binding.titleNameUser.text = "Óla,\n${user!!.name} vamos as compras hoje?"
+                binding.titleNameUser.text = "Óla, ${user!!.name} vamos as compras hoje?"
             }
 
             override fun onCancelled(error: DatabaseError) {

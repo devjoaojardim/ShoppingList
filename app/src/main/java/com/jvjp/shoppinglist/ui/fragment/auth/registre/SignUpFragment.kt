@@ -53,6 +53,9 @@ class SignUpFragment : Fragment() {
         binding.buttonRegistreEmail.setOnClickListener {
             val name = binding.editNameRegistre.text.toString()
             val email = binding.editEmailRegistre.text.toString()
+            val cpf = binding.editCPF.text.toString()
+            val birth = binding.editBirth.text.toString()
+            val phone = binding.editPhone.text.toString()
             val password = binding.editPasswordRegistre.text.toString()
             val coPassword = binding.editCoPasswordRegistre.text.toString()
             if (!validatePasswordMatch(
@@ -68,10 +71,12 @@ class SignUpFragment : Fragment() {
                                 usuario = User()
                                 usuario!!.name = name
                                 usuario!!.email = email
+                                usuario!!.codePerson = cpf
+                                usuario!!.birth = birth
+                                usuario!!.phone = phone
                                 usuario!!.senha = password
                                 createUser()
-                                preferences.setInforUserName(name)
-                                preferences.setInforUserEmail(email)
+
                             }
                         }
                     }
@@ -105,7 +110,8 @@ class SignUpFragment : Fragment() {
                 } catch (e: FirebaseAuthWeakPasswordException) {
                     excecao = "Digite uma senha mais forte!"
                 } catch (e: FirebaseAuthInvalidCredentialsException) {
-                    excecao = "Por favor, digite um e-mail válido!"
+                    println("${e.message}")
+                    excecao = "Por favor, digite um e-mail válido! + ${e.message}"
                 } catch (e: FirebaseAuthUserCollisionException) {
                     excecao = "Esse email ja foi cadastrado"
                 } catch (e: Exception) {
